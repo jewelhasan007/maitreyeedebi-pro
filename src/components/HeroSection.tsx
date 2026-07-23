@@ -14,9 +14,9 @@ interface HeroSectionProps {
 // and reference them here with a root-relative path (no "public/" prefix).
 // Add or remove entries freely — the rotation adapts to however many you list.
 const HERO_PORTRAITS: string[] = [
-  '/images/hero/banner1.jpeg',
-  '/images/hero/banner2.jpg',
-  '/images/hero/banner3.jpg',
+  '/images/hero/banner1.jpg',
+  '/images/hero/banner2.png',
+  '/images/hero/banner3.png',
   '/images/hero/banner4.jpg'
 ];
 
