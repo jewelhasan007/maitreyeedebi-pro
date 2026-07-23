@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Play, Sparkles, ArrowDownRight, Disc, Award, Globe, Music } from 'lucide-react';
 import { ARTIST_INFO, FEATURED_TRACKS } from '../data/portfolioData';
 import { SongTrack } from '../types';
@@ -9,11 +9,36 @@ interface HeroSectionProps {
   isPlaying: boolean;
 }
 
+// Images served from the /public folder.
+// Drop files into e.g. /public/hero/portrait-1.jpg, portrait-2.jpg, portrait-3.jpg
+// and reference them here with a root-relative path (no "public/" prefix).
+// Add or remove entries freely — the rotation adapts to however many you list.
+const HERO_PORTRAITS: string[] = [
+  '/public/images/hero/banner1.jpeg',
+  '/public/images/hero/banner2.jpg',
+  '/public/images/hero/banner3.jpg',
+  '/public/images/hero/banner4.jpg'
+];
+
+const HERO_ROTATE_INTERVAL_MS = 5000;
+
 export const HeroSection: React.FC<HeroSectionProps> = ({
   onPlayTrack,
   currentTrack,
   isPlaying,
 }) => {
+  const [portraitIndex, setPortraitIndex] = useState(0);
+
+  useEffect(() => {
+    if (HERO_PORTRAITS.length <= 1) return;
+    const id = setInterval(() => {
+      setPortraitIndex((prev) => (prev + 1) % HERO_PORTRAITS.length);
+    }, HERO_ROTATE_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, []);
+
+  const currentPortrait = HERO_PORTRAITS[portraitIndex] ?? ARTIST_INFO.heroPortrait;
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -127,13 +152,34 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Outer Decorative Gold Frame */}
             <div className="relative w-full max-w-md aspect-[3/4] rounded-3xl p-2 bg-gradient-to-b from-[#D4AF37]/40 via-[#B76E79]/20 to-transparent shadow-2xl gold-glow">
               <div className="w-full h-full rounded-[22px] overflow-hidden relative group">
-                <img
-                  src={ARTIST_INFO.heroPortrait}
-                  alt={ARTIST_INFO.name}
-                  className="w-full h-full object-cover object-top filter contrast-[1.05] brightness-95 group-hover:scale-105 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
+                {HERO_PORTRAITS.map((src, idx) => (
+                  <img
+                    key={src}
+                    src={src}
+                    alt={`${ARTIST_INFO.name} portrait ${idx + 1}`}
+                    className={`absolute inset-0 w-full h-full object-cover object-top filter contrast-[1.05] brightness-95 group-hover:scale-105 transition-all duration-1000 ease-in-out ${
+                      idx === portraitIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    referrerPolicy="no-referrer"
+                  />
+                ))}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#090909] via-transparent to-transparent opacity-80" />
+
+                {/* Rotation Dots Indicator */}
+                {HERO_PORTRAITS.length > 1 && (
+                  <div className="absolute top-4 right-4 flex space-x-1.5 z-10">
+                    {HERO_PORTRAITS.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setPortraitIndex(idx)}
+                        aria-label={`Show portrait ${idx + 1}`}
+                        className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                          idx === portraitIndex ? 'bg-[#D4AF37] w-4' : 'bg-white/40'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                )}
 
                 {/* Floating Signature Tag on Image */}
                 <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-panel border border-[#D4AF37]/30 space-y-1">
