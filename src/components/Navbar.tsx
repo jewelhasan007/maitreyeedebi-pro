@@ -63,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full overflow-x-hidden transition-all duration-500 ${
         isScrolled
           ? isDarkMode
             ? 'py-3 bg-[#090909]/95 backdrop-blur-md shadow-2xl border-b border-[#D4AF37]/30'
@@ -71,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           : 'py-6 bg-transparent'
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between gap-6">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between gap-3 xl:gap-6">
         {/* Brand Logo with Lucrative Emblem */}
         <button
           onClick={() => scrollToSection('hero')}
@@ -136,15 +136,15 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
         </button>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-3 xl:gap-6 mx-4 xl:mx-8">
+        {/* Desktop Navigation Links — only shown from xl up, where there's room for all 9 links plus the action controls */}
+        <nav className="hidden xl:flex items-center gap-1.5 2xl:gap-4 mx-2 min-w-0 shrink">
           {NAV_LINKS.map((link) => {
             const isActive = activeSection === link.id;
             return (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className={`text-[10px] xl:text-[11px] uppercase tracking-[0.2em] font-semibold transition-all duration-300 relative py-1.5 px-2.5 rounded-lg hover:bg-white/5 ${
+                className={`whitespace-nowrap text-[10px] 2xl:text-[11px] uppercase tracking-[0.2em] font-semibold transition-all duration-300 relative py-1.5 px-2 2xl:px-2.5 rounded-lg hover:bg-white/5 ${
                   isActive
                     ? 'text-[#D4AF37] drop-shadow-[0_0_10px_rgba(212,175,55,0.4)]'
                     : isDarkMode
@@ -162,12 +162,12 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Header Action Controls */}
-        <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3 xl:gap-4 shrink-0">
           {/* Audio Quick Bar Button */}
           {currentTrack && (
             <button
               onClick={togglePlay}
-              className="flex items-center space-x-2 px-3 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#121212]/80 hover:border-[#D4AF37] transition-all text-xs text-[#FAFAFA]"
+              className="hidden md:flex items-center space-x-2 px-3 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#121212]/80 hover:border-[#D4AF37] transition-all text-xs text-[#FAFAFA]"
               title={isPlaying ? 'Pause Audio' : 'Play Audio'}
             >
               <Disc3
@@ -175,7 +175,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   isPlaying ? 'animate-spin-slow' : ''
                 }`}
               />
-              <span className="hidden sm:inline font-mono text-[11px] truncate max-w-[120px]">
+              <span className="hidden 2xl:inline font-mono text-[11px] truncate max-w-[120px]">
                 {currentTrack.title}
               </span>
               <Volume2 className="w-3.5 h-3.5 text-[#D4AF37]" />
@@ -185,7 +185,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full border border-white/10 hover:border-[#D4AF37]/50 text-[#A3A3A3] hover:text-[#D4AF37] transition-all"
+            className="p-2 rounded-full border border-white/10 hover:border-[#D4AF37]/50 text-[#A3A3A3] hover:text-[#D4AF37] transition-all shrink-0"
             aria-label="Toggle Theme Mode"
           >
             {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -194,15 +194,15 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Booking CTA Button (Desktop) */}
           <button
             onClick={() => scrollToSection('contact')}
-            className="hidden sm:block px-4 py-2 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B76E79] text-black font-semibold text-xs tracking-wider uppercase hover:opacity-95 hover:shadow-lg hover:shadow-[#D4AF37]/20 transition-all duration-300"
+            className="hidden sm:block px-4 py-2 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B76E79] text-black font-semibold text-xs tracking-wider uppercase hover:opacity-95 hover:shadow-lg hover:shadow-[#D4AF37]/20 transition-all duration-300 shrink-0 whitespace-nowrap"
           >
             Book Concert
           </button>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile / Tablet Hamburger Toggle — shown below xl, matching the nav's breakpoint */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-[#FAFAFA] hover:text-[#D4AF37] focus:outline-none"
+            className="xl:hidden p-2 text-[#FAFAFA] hover:text-[#D4AF37] focus:outline-none shrink-0"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -210,9 +210,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu — matches xl breakpoint */}
       {mobileMenuOpen && (
-        <div className="lg:hidden glass-panel border-b border-[#D4AF37]/20 px-6 pt-4 pb-8 space-y-4 animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className="xl:hidden glass-panel border-b border-[#D4AF37]/20 px-6 pt-4 pb-8 space-y-4 animate-in fade-in slide-in-from-top-4 duration-300">
           <div className="flex flex-col space-y-3 pt-2">
             {NAV_LINKS.map((link) => (
               <button

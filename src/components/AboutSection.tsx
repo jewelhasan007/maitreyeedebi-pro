@@ -37,6 +37,14 @@ const TIMELINE_MILESTONES = [
   { year: '2024', event: 'Sold-out concert at Royal Albert Hall & conferred Global Icon Honor.' },
 ];
 
+// Local gallery images served from the /public folder.
+// Drop files into public/performances/image001.png, image002.png, etc.
+const GALLERY_IMAGES = [
+  '/images/performances/image001.png',
+  '/images/performances/image002.jpg',
+  '/images/performances/image003.png',
+];
+
 export const AboutSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState('heritage');
 
@@ -72,7 +80,7 @@ export const AboutSection: React.FC = () => {
           <div className="lg:col-span-5 space-y-6">
             <div className="relative rounded-3xl overflow-hidden border border-[#D4AF37]/30 shadow-2xl group">
               <img
-                src={ARTIST_INFO.concertStage}
+                src="/images/performances/image001.png"
                 alt="Maitreyee Debi Performing Live"
                 className="w-full aspect-[4/5] object-cover filter contrast-[1.05] group-hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
@@ -89,6 +97,24 @@ export const AboutSection: React.FC = () => {
                   </p>
                 </div>
               </div>
+            </div>
+
+            {/* Secondary Image Gallery Strip */}
+            <div className="grid grid-cols-3 gap-3">
+              {GALLERY_IMAGES.map((src, idx) => (
+                <div
+                  key={src}
+                  className="relative rounded-xl overflow-hidden border border-[#D4AF37]/20 aspect-square group"
+                >
+                  <img
+                    src={src}
+                    alt={`Maitreyee Debi — Performance moment ${idx + 2}`}
+                    className="w-full h-full object-cover filter contrast-[1.05] group-hover:scale-105 transition-transform duration-500"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
+                </div>
+              ))}
             </div>
 
             {/* Signature Block */}
