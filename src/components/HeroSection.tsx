@@ -162,7 +162,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <div className="absolute inset-0 bg-gradient-to-t from-[#090909] via-transparent to-transparent opacity-80" />
 
                 {/* Rotation Dots Indicator */}
-                {HERO_PORTRAITS.length > 1 && (
+                {/* {HERO_PORTRAITS.length > 1 && (
                   <div className="absolute top-4 right-4 flex space-x-1.5 z-10">
                     {HERO_PORTRAITS.map((_, idx) => (
                       <button
@@ -175,7 +175,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                       />
                     ))}
                   </div>
-                )}
+                )} */}
 
                 {/* Floating Signature Tag on Image */}
                 <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-panel border border-[#D4AF37]/30 space-y-1">
@@ -189,15 +189,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
 
               {/* Top Floating Badge */}
-              <div className="absolute -top-4 -right-4 px-4 py-2 rounded-2xl glass-panel border border-[#D4AF37] flex items-center space-x-2 shadow-xl">
+              {/* <div className="absolute -top-4 -right-4 px-4 py-2 rounded-2xl glass-panel border border-[#D4AF37] flex items-center space-x-2 shadow-xl">
                 <Globe className="w-4 h-4 text-[#D4AF37]" />
                 <span className="text-xs font-semibold text-[#FAFAFA]">
                   World Tour 2026
                 </span>
-              </div>
+              </div> */}
 
               {/* Bottom Left Floating Badge */}
-              <div className="absolute -bottom-4 -left-4 p-3 rounded-2xl glass-panel border border-[#B76E79]/40 flex items-center space-x-3 shadow-xl">
+              {/* <div className="absolute -bottom-4 -left-4 p-3 rounded-2xl glass-panel border border-[#B76E79]/40 flex items-center space-x-3 shadow-xl">
                 <Award className="w-5 h-5 text-[#B76E79]" />
                 <div>
                   <span className="block text-[10px] text-[#A3A3A3] uppercase tracking-wider">
@@ -207,7 +207,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     18 Global Awards
                   </span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 

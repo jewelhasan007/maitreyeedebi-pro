@@ -56,12 +56,12 @@ export const AboutSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center space-y-3 max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-[#D4AF37]/30 bg-[#121212]/80">
+          {/* <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-[#D4AF37]/30 bg-[#121212]/80">
             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span className="text-[11px] font-mono tracking-widest text-[#D4AF37] uppercase">
               The Story & Persona
             </span>
-          </div>
+          </div> */}
           <h2 className="font-serif-luxury text-3xl sm:text-5xl font-bold tracking-tight text-[#FAFAFA]">
             A Life Dedicated to <br />
             <span className="gold-gradient-text italic font-normal">
@@ -74,7 +74,7 @@ export const AboutSection: React.FC = () => {
         </div>
 
         {/* Editorial Layout Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-top">
           
           {/* Left Column: Image & Signature Quote */}
           <div className="lg:col-span-5 space-y-6">
@@ -98,84 +98,10 @@ export const AboutSection: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* Secondary Image Gallery Strip */}
-            <div className="grid grid-cols-3 gap-3">
-              {GALLERY_IMAGES.map((src, idx) => (
-                <div
-                  key={src}
-                  className="relative rounded-xl overflow-hidden border border-[#D4AF37]/20 aspect-square group"
-                >
-                  <img
-                    src={src}
-                    alt={`Maitreyee Debi — Performance moment ${idx + 2}`}
-                    className="w-full h-full object-cover filter contrast-[1.05] group-hover:scale-105 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
-                </div>
-              ))}
-            </div>
-
-            {/* Signature Block */}
-            <div className="p-5 rounded-2xl glass-panel border border-[#D4AF37]/20 relative">
-              <Quote className="w-6 h-6 text-[#D4AF37]/20 absolute top-4 right-4" />
-              <p className="text-xs sm:text-sm text-[#FAFAFA] font-serif-luxury italic leading-relaxed mb-3">
-                "{ARTIST_INFO.quote}"
-              </p>
-              <div className="flex items-center justify-between border-t border-white/10 pt-3">
-                <div>
-                  <span className="block font-signature text-2xl text-[#D4AF37]">
-                    Maitreyee Debi
-                  </span>
-                  <span className="text-[10px] text-[#A3A3A3] tracking-widest uppercase">
-                    Singer & Composer
-                  </span>
-                </div>
-                <div className="text-right">
-                  <span className="block font-mono text-xs text-[#D4AF37]">15+ Years</span>
-                  <span className="text-[10px] text-[#A3A3A3] uppercase">Cultural Icon</span>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Right Column: Tabbed Narrative & Timeline */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Biography Tabs */}
-            <div className="flex flex-wrap gap-2 border-b border-white/10 pb-3">
-              {BIO_TABS.map((tab) => {
-                const isActive = activeTab === tab.id;
-                const Icon = tab.icon;
-                return (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-[11px] font-medium uppercase tracking-wider transition-all duration-300 ${
-                      isActive
-                        ? 'bg-[#D4AF37] text-black font-bold shadow-md shadow-[#D4AF37]/20'
-                        : 'bg-[#121212] text-[#A3A3A3] hover:text-[#FAFAFA] border border-white/5 hover:border-[#D4AF37]/30'
-                    }`}
-                  >
-                    <Icon className="w-3.5 h-3.5" />
-                    <span>{tab.label}</span>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Active Tab Narrative Content */}
-            <div className="p-5 sm:p-6 rounded-2xl glass-panel border border-[#D4AF37]/20 space-y-3 animate-in fade-in duration-300">
-              <h3 className="font-serif-luxury text-lg sm:text-xl font-bold text-[#FAFAFA] gold-gradient-text">
-                {currentTabObj.label}
-              </h3>
-              <p className="text-xs sm:text-sm text-[#FAFAFA]/90 font-sans-clean leading-relaxed font-light">
-                {currentTabObj.content}
-              </p>
-              <p className="text-xs text-[#A3A3A3] font-sans-clean leading-relaxed font-light">
-                {ARTIST_INFO.fullBio}
-              </p>
-            </div>
 
             {/* Career Milestones Accordion / List */}
             <div className="space-y-3">
@@ -198,6 +124,46 @@ export const AboutSection: React.FC = () => {
                     </p>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* Secondary Image Gallery Strip */}
+            <div className="grid grid-cols-3 gap-3">
+              {GALLERY_IMAGES.map((src, idx) => (
+                <div
+                  key={src}
+                  className="relative rounded-xl overflow-hidden border border-[#D4AF37]/20 aspect-square group"
+                >
+                  <img
+                    src={src}
+                    alt={`Maitreyee Debi — Performance moment ${idx + 2}`}
+                    className="w-full h-full object-cover filter contrast-[1.05] group-hover:scale-105 transition-transform duration-500"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
+                </div>
+              ))}
+            </div>
+
+              {/* Signature Block */}
+            <div className="p-5 rounded-2xl glass-panel border border-[#D4AF37]/20 relative">
+              <Quote className="w-6 h-6 text-[#D4AF37]/20 absolute top-4 right-4" />
+              <p className="text-xs sm:text-sm text-[#FAFAFA] font-serif-luxury italic leading-relaxed mb-3">
+                "{ARTIST_INFO.quote}"
+              </p>
+              <div className="flex items-center justify-between border-t border-white/10 pt-3">
+                <div>
+                  <span className="block font-signature text-2xl text-[#D4AF37]">
+                    Maitreyee Debi
+                  </span>
+                  <span className="text-[10px] text-[#A3A3A3] tracking-widest uppercase">
+                    Singer & Composer
+                  </span>
+                </div>
+                <div className="text-right">
+                  <span className="block font-mono text-xs text-[#D4AF37]">15+ Years</span>
+                  <span className="text-[10px] text-[#A3A3A3] uppercase">Cultural Icon</span>
+                </div>
               </div>
             </div>
 
