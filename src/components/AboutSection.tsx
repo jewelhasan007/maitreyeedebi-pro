@@ -40,9 +40,9 @@ const TIMELINE_MILESTONES = [
 // Local gallery images served from the /public folder.
 // Drop files into public/performances/image001.png, image002.png, etc.
 const GALLERY_IMAGES = [
-  '/images/performances/image001.png',
-  '/images/performances/image002.jpg',
-  '/images/performances/image003.png',
+  '/images/about/image020.jpg',
+  '/images/about/image008.jpg',
+  '/images/about/image002.jpg',
 ];
 
 export const AboutSection: React.FC = () => {
