@@ -123,7 +123,7 @@ export const Footer: React.FC = () => {
               Quick Navigation
             </h4>
             <ul className="space-y-2 text-xs text-[#A3A3A3]">
-              {['about', 'music', 'performances', 'awards', 'media', 'gallery', 'events', 'contact'].map((id) => (
+              {['about', 'music', 'performances', 'awards', 'media', 'gallery', 'events', 'publications', 'contact'].map((id) => (
                 <li key={id}>
                   <button
                     onClick={() => scrollTo(id)}

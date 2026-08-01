@@ -417,3 +417,124 @@ export const TESTIMONIALS: Testimonial[] = [
     avatarUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
   }
 ];
+
+
+export const BOOK_PUBLICATIONS: BookPublication[] = [
+  {
+    id: "book-1",
+    title: "Ragas in Silk & Shadow",
+    subtitle: "The Philosophy & Aesthetics of Indian Vocal Arts",
+    author: "Maitreyee Debi",
+    publisher: "Oxford University Press",
+    publishYear: 2024,
+    isbn: "978-0-19-983021-4",
+    category: "Musicology",
+    coverUrl: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80",
+    description: "A seminal volume exploring the microtonal architecture, emotional dynamics (rasa), and spiritual philosophy of Hindustani classical vocal traditions, bridging ancient treatises with modern acoustic performance theory.",
+    pages: 348,
+    language: "English (Sanskrit Transliterated)",
+    awards: ["IMS International Musicological Book of the Year 2024", "National Cultural Heritage Citation"],
+    rating: 4.9,
+    reviewsCount: 128,
+    isFeatured: true,
+    excerpt: "To sing a raga is to step into a living sanctuary where time bends to resonance. In Khyal, the voice does not merely hit notes; it traces the invisible contours of human longing across micro-intervals (srutis). When morning's first light meets Raag Bairagi, the acoustic frequencies vibrate in resonance with the human pulse, unlocking emotional landscapes that words alone can never touch.",
+    buyLinks: [
+      { label: "Amazon Hardcover", url: "https://amazon.com", platform: "amazon" },
+      { label: "Oxford University Press Edition", url: "https://global.oup.com", platform: "publisher" },
+      { label: "Google Books Digital Edition", url: "https://books.google.com", platform: "google" }
+    ]
+  },
+  {
+    id: "book-2",
+    title: "Shonar Pakhi (Golden Bird)",
+    subtitle: "Verses of Memory, Dawn & Solitude",
+    author: "Maitreyee Debi",
+    publisher: "Penguin Random House",
+    publishYear: 2023,
+    isbn: "978-0-14-345892-1",
+    category: "Poetry & Verses",
+    coverUrl: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80",
+    description: "An evocative collection of 85 original poems and lyrical meditations written during tour journeys across global capitals, celebrating nature, spiritual solitude, love, and the transcendent power of melody.",
+    pages: 216,
+    language: "Bengali Original with English Translations",
+    awards: ["Tagore Literary Society Gold Medal 2023"],
+    rating: 4.8,
+    reviewsCount: 94,
+    isFeatured: false,
+    excerpt: "On the banks of the Seine at twilight, I heard the faint echo of a distant Ektara. The golden bird inside my chest fluttered its wings—singing not of caged sorrow, but of the endless sky waiting beyond the horizon. Music is where memory turns into light.",
+    buyLinks: [
+      { label: "Penguin Store", url: "https://penguin.com", platform: "publisher" },
+      { label: "Amazon Paperback", url: "https://amazon.com", platform: "amazon" }
+    ]
+  },
+  {
+    id: "book-3",
+    title: "Tagore's Harmonious Universe",
+    subtitle: "Unveiling Orchestrated Rabindra Sangeet",
+    author: "Maitreyee Debi",
+    coAuthors: "Dr. Christopher Sterling",
+    publisher: "Routledge Cultural Studies",
+    publishYear: 2022,
+    isbn: "978-1-138-49012-8",
+    category: "Cultural Philosophy",
+    coverUrl: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+    description: "An authoritative study on Rabindranath Tagore's musical philosophy, exploring how his 2,000+ compositions synthesize Western symphonic structures with Indian folk and classical ragas.",
+    pages: 292,
+    language: "English",
+    awards: ["Asian Performing Arts Book Award"],
+    rating: 4.9,
+    reviewsCount: 76,
+    isFeatured: false,
+    excerpt: "Tagore understood that music is the ultimate universal currency. When he composed Anandadhara, he did not just write a melody; he transcribed the cosmic stream of joy flowing through galaxies, rivers, and human hearts alike. Modern orchestral arrangements only expand the acoustic wings of his vision.",
+    buyLinks: [
+      { label: "Routledge Academic Store", url: "https://routledge.com", platform: "publisher" },
+      { label: "Amazon Hardcover", url: "https://amazon.com", platform: "amazon" }
+    ]
+  },
+  {
+    id: "book-4",
+    title: "Vocal Riyaz & Resonance",
+    subtitle: "A Masterclass in Hindustani Khyal Technique",
+    author: "Maitreyee Debi",
+    publisher: "Sangeet Natak Akademi Publications",
+    publishYear: 2021,
+    isbn: "978-81-230-3104-5",
+    category: "Pedagogy",
+    coverUrl: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=800&q=80",
+    description: "A practical guide for vocalists covering diaphragmatic breath control, vocal health, pitch accuracy (sur), gamak, tanas, and stage presentation for classical concerts.",
+    pages: 260,
+    language: "English & Hindi Dual Edition",
+    awards: ["National Conservatory Recommended Textbook"],
+    rating: 5.0,
+    reviewsCount: 210,
+    isFeatured: false,
+    excerpt: "True vocal resonance comes not from physical strain, but from perfect alignment between breath support, abdominal diaphragmatic expansion, and relaxed upper resonance cavities. Daily Riyaz is not a mechanical drill; it is a sacred daily ritual of self-discovery.",
+    buyLinks: [
+      { label: "Akademi Bookstore", url: "https://sangeetnatak.gov.in", platform: "bookstore" },
+      { label: "Amazon Paperback", url: "https://amazon.com", platform: "amazon" }
+    ]
+  },
+  {
+    id: "book-5",
+    title: "Whispers of the Baul",
+    subtitle: "Echoes of Bengal's Mystics",
+    author: "Maitreyee Debi",
+    publisher: "HarperCollins India",
+    publishYear: 2019,
+    isbn: "978-0-00-832109-7",
+    category: "Translations",
+    coverUrl: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=800&q=80",
+    description: "A captivating translation and commentary on the mystical folk songs of Bengal's Baul singers, celebrating divine love, human brotherhood, and spiritual freedom without dogma.",
+    pages: 224,
+    language: "English & Bengali",
+    awards: ["UNESCO Cultural Heritage Preservation Citation"],
+    rating: 4.7,
+    reviewsCount: 88,
+    isFeatured: false,
+    excerpt: "The Baul sings with no temple walls surrounding him. His sanctuary is the open road, his instrument the simple dotara, and his deity the Moner Manush — the Unknown Beloved residing within every human heart. In these pages, we listen to their timeless wisdom.",
+    buyLinks: [
+      { label: "HarperCollins Store", url: "https://harpercollins.com", platform: "publisher" },
+      { label: "Amazon Paperback", url: "https://amazon.com", platform: "amazon" }
+    ]
+  }
+];

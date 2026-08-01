@@ -64,32 +64,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           
           {/* Left Column: Typography & Story CTAs */}
           <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
-            {/* Crown Eyebrow Tag */}
-            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#121212]/60 backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-[#D4AF37] animate-pulse" />
-              <span className="text-xs font-mono tracking-widest text-[#D4AF37] uppercase">
-                Official Artist & Singer Portfolio
-              </span>
-            </div>
+
 
             {/* Main Headline */}
             <div className="space-y-3">
               <h1 className="font-serif-luxury text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-[#FAFAFA] leading-[1.05]">
-                Voice. <br />
-                <span className="gold-gradient-text italic font-serif-luxury font-normal">
-                  Art.
+                Maitreyee Debi <br />
+                <span className="gold-gradient-text italic font-serif-luxury font-normal text-3xl sm:text-5xl lg:text-6xl font-bold">
+                  — Voice of  Rabindra Sangeet & Classical Fusion.
                 </span>{' '}
-                Performance.
+               {/* <span className="text-2xl sm:text-4xl lg:text-5xl font-bold">
+                 Rabindra Sangeet & Classical Fusion.
+               </span> */}
               </h1>
-              <p className="font-serif-luxury text-2xl sm:text-3xl text-[#D4AF37]/90 font-light italic">
-                Maitreyee Debi
-              </p>
+              {/* <p className="font-serif-luxury text-2xl sm:text-3xl text-[#D4AF37]/90 font-light italic">
+                Maitreyee Debi — Voice of Rabindra Sangeet & Classical Fusion
+              </p> */}
             </div>
 
             {/* Subheading */}
-            <p className="text-base sm:text-lg text-[#A3A3A3] font-sans-clean max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+            {/* <p className="text-base sm:text-lg text-[#A3A3A3] font-sans-clean max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
               {ARTIST_INFO.shortBio}
-            </p>
+            </p> */}
 
             {/* CTA Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
@@ -111,7 +107,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Quick Track Preview Bar */}
-            <div className="pt-6 border-t border-white/10 max-w-xl mx-auto lg:mx-0">
+            {/* <div className="pt-6 border-t border-white/10 max-w-xl mx-auto lg:mx-0">
               <div className="p-3.5 rounded-2xl glass-panel flex items-center justify-between">
                 <div className="flex items-center space-x-3">
                   <div className="relative group cursor-pointer" onClick={() => onPlayTrack(topTrack)}>
@@ -144,7 +140,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <Music className="w-4 h-4" />
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Column: Hero Portrait Showcase */}

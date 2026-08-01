@@ -21,6 +21,7 @@ const NAV_LINKS = [
   { id: 'media', label: 'Media' },
   { id: 'gallery', label: 'Gallery' },
   { id: 'events', label: 'Events' },
+  { id: 'publications', label: 'Publications' },
   { id: 'contact', label: 'Contact' },
 ];
 

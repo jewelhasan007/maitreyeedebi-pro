@@ -40,7 +40,7 @@ export default function App() {
 
   // Section Observer for Active Nav Highlight
   useEffect(() => {
-    const sectionIds = ['hero', 'about', 'music', 'performances', 'awards', 'media', 'gallery', 'events', 'contact'];
+    const sectionIds = ['hero', 'about', 'music', 'performances', 'awards', 'media', 'gallery', 'events', 'publications', 'contact'];
     
     const handleScroll = () => {
       const scrollPos = window.scrollY + 200;
@@ -125,7 +125,9 @@ export default function App() {
         <PressSection />
         <GallerySection />
         <EventsSection />
+         <PerformanceSection></PerformanceSection>
         <TestimonialsSection />
+       
         <ContactSection />
       </main>
 

@@ -100,3 +100,26 @@ export interface BookingFormData {
   budgetRange?: string;
   message: string;
 }
+
+
+export interface BookPublication {
+  id: string;
+  title: string;
+  subtitle?: string;
+  author: string;
+  coAuthors?: string;
+  publisher: string;
+  publishYear: number;
+  isbn?: string;
+  category: 'Musicology' | 'Poetry & Verses' | 'Cultural Philosophy' | 'Pedagogy' | 'Translations';
+  coverUrl: string;
+  description: string;
+  pages?: number;
+  language: string;
+  awards?: string[];
+  buyLinks?: { label: string; url: string; platform: 'amazon' | 'publisher' | 'google' | 'bookstore' }[];
+  excerpt?: string;
+  rating?: number;
+  reviewsCount?: number;
+  isFeatured?: boolean;
+}
