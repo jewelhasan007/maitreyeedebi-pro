@@ -1,10 +1,21 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { SongTrack } from '../types';
-import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, Disc3, X, Maximize2, Repeat } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, X, Repeat } from 'lucide-react';
 
+// NOTE: this component no longer owns an <audio> element. Actual playback
+// (native <audio> OR hidden YouTube IFrame player) is handled entirely by
+// useMediaPlayer() in the parent (App.tsx). This component just displays
+// the state it's handed and forwards user actions back up.
 interface AudioPlayerDrawerProps {
   currentTrack: SongTrack | null;
   isPlaying: boolean;
+  currentTime: number;
+  duration: number;
+  volume: number;
+  loop: boolean;
+  onSeek: (time: number) => void;
+  onVolumeChange: (volume: number) => void;
+  onToggleLoop: () => void;
   onTogglePlay: () => void;
   onNextTrack: () => void;
   onPrevTrack: () => void;
@@ -14,48 +25,39 @@ interface AudioPlayerDrawerProps {
 export const AudioPlayerDrawer: React.FC<AudioPlayerDrawerProps> = ({
   currentTrack,
   isPlaying,
+  currentTime,
+  duration,
+  volume,
+  loop,
+  onSeek,
+  onVolumeChange,
+  onToggleLoop,
   onTogglePlay,
   onNextTrack,
   onPrevTrack,
   onClose,
 }) => {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(0.8);
   const [isMuted, setIsMuted] = useState(false);
-  const [isLoop, setIsLoop] = useState(false);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.play().catch((err) => console.log('Audio autoplay prevented:', err));
-      } else {
-        audioRef.current.pause();
-      }
-    }
-  }, [isPlaying, currentTrack]);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = isMuted ? 0 : volume;
-    }
-  }, [volume, isMuted]);
 
   if (!currentTrack) return null;
 
-  const handleTimeUpdate = () => {
-    if (audioRef.current) {
-      setCurrentTime(audioRef.current.currentTime);
-      setDuration(audioRef.current.duration || 0);
-    }
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onSeek(parseFloat(e.target.value));
   };
 
-  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const time = parseFloat(e.target.value);
-    setCurrentTime(time);
-    if (audioRef.current) {
-      audioRef.current.currentTime = time;
+  const handleVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const v = parseFloat(e.target.value);
+    setIsMuted(false);
+    onVolumeChange(v);
+  };
+
+  const toggleMute = () => {
+    if (isMuted) {
+      setIsMuted(false);
+      onVolumeChange(volume || 0.8);
+    } else {
+      setIsMuted(true);
+      onVolumeChange(0);
     }
   };
 
@@ -68,22 +70,8 @@ export const AudioPlayerDrawer: React.FC<AudioPlayerDrawerProps> = ({
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 glass-panel border-t border-[#D4AF37]/30 px-4 py-3 shadow-2xl animate-in slide-in-from-bottom duration-300">
-      <audio
-        ref={audioRef}
-        src={currentTrack.audioUrl}
-        onTimeUpdate={handleTimeUpdate}
-        onEnded={() => {
-          if (isLoop) {
-            if (audioRef.current) audioRef.current.currentTime = 0;
-            audioRef.current?.play();
-          } else {
-            onNextTrack();
-          }
-        }}
-      />
-
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
-        
+
         {/* Track Metadata */}
         <div className="flex items-center space-x-3 min-w-0 w-full md:w-auto">
           <div className="relative group shrink-0">
@@ -111,9 +99,9 @@ export const AudioPlayerDrawer: React.FC<AudioPlayerDrawerProps> = ({
         <div className="flex-1 max-w-xl w-full space-y-1">
           <div className="flex items-center justify-center space-x-4">
             <button
-              onClick={() => setIsLoop(!isLoop)}
+              onClick={onToggleLoop}
               className={`p-1.5 rounded-full text-xs transition-colors ${
-                isLoop ? 'text-[#D4AF37]' : 'text-[#A3A3A3] hover:text-[#FAFAFA]'
+                loop ? 'text-[#D4AF37]' : 'text-[#A3A3A3] hover:text-[#FAFAFA]'
               }`}
               title="Repeat Track"
             >
@@ -167,7 +155,7 @@ export const AudioPlayerDrawer: React.FC<AudioPlayerDrawerProps> = ({
         <div className="hidden md:flex items-center space-x-4 shrink-0">
           <div className="flex items-center space-x-2">
             <button
-              onClick={() => setIsMuted(!isMuted)}
+              onClick={toggleMute}
               className="text-[#A3A3A3] hover:text-[#D4AF37] transition-colors"
             >
               {isMuted || volume === 0 ? (
@@ -182,7 +170,7 @@ export const AudioPlayerDrawer: React.FC<AudioPlayerDrawerProps> = ({
               max={1}
               step={0.01}
               value={isMuted ? 0 : volume}
-              onChange={(e) => setVolume(parseFloat(e.target.value))}
+              onChange={handleVolume}
               className="w-16 accent-[#D4AF37] h-1 rounded-lg bg-white/10 cursor-pointer"
             />
           </div>

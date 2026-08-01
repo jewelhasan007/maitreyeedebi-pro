@@ -33,12 +33,7 @@ export const MusicSection: React.FC<MusicSectionProps> = ({
         
         {/* Section Header */}
         <div className="text-center space-y-3 max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-[#D4AF37]/30 bg-[#121212]/80">
-            <Music className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span className="text-[11px] font-mono tracking-widest text-[#D4AF37] uppercase">
-              Discography & Audio Showcase
-            </span>
-          </div>
+
           <h2 className="font-serif-luxury text-3xl sm:text-5xl font-bold tracking-tight text-[#FAFAFA]">
             Masterpieces of <br />
             <span className="gold-gradient-text italic font-normal">

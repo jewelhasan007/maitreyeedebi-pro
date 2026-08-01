@@ -15,13 +15,47 @@ import { ContactSection } from './components/ContactSection';
 import { AudioPlayerDrawer } from './components/AudioPlayerDrawer';
 import { Footer } from './components/Footer';
 import { FEATURED_TRACKS } from './data/portfolioData';
-import { SongTrack } from './types';
+import { useMediaPlayer } from './hooks/useMediaPlayer';
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [activeSection, setActiveSection] = useState('hero');
-  const [currentTrack, setCurrentTrack] = useState<SongTrack | null>(FEATURED_TRACKS[0]);
-  const [isPlaying, setIsPlaying] = useState(false);
+
+  // Track Playback Handlers (defined before useMediaPlayer call below is
+  // fine — the onTrackEnd callback only actually *runs* later, once a
+  // track finishes, by which point handleNextTrack is fully assigned).
+  const handleNextTrack = () => {
+    if (!currentTrack) return;
+    const currentIndex = FEATURED_TRACKS.findIndex((t) => t.id === currentTrack.id);
+    const nextTrack = FEATURED_TRACKS[(currentIndex + 1) % FEATURED_TRACKS.length];
+    play(nextTrack);
+  };
+
+  const handlePrevTrack = () => {
+    if (!currentTrack) return;
+    const currentIndex = FEATURED_TRACKS.findIndex((t) => t.id === currentTrack.id);
+    const prevTrack = FEATURED_TRACKS[(currentIndex - 1 + FEATURED_TRACKS.length) % FEATURED_TRACKS.length];
+    play(prevTrack);
+  };
+
+  // Single source of truth for playback — replaces the old
+  // currentTrack/isPlaying useState pair. Routes YouTube links through the
+  // hidden YouTube IFrame player and everything else through <audio>.
+  const {
+    currentTrack,
+    isPlaying,
+    currentTime,
+    duration,
+    volume,
+    loop,
+    setLoop,
+    togglePlay,
+    play,
+    pause,
+    resume,
+    seek,
+    setVolume,
+  } = useMediaPlayer(() => handleNextTrack());
 
   // Toggle Theme
   const toggleTheme = () => {
@@ -41,7 +75,7 @@ export default function App() {
   // Section Observer for Active Nav Highlight
   useEffect(() => {
     const sectionIds = ['hero', 'about', 'music', 'performances', 'awards', 'media', 'gallery', 'events', 'publications', 'contact'];
-    
+
     const handleScroll = () => {
       const scrollPos = window.scrollY + 200;
       for (const id of sectionIds) {
@@ -62,31 +96,14 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Track Playback Handlers
-  const handlePlayTrack = (track: SongTrack) => {
-    if (currentTrack?.id === track.id) {
-      setIsPlaying(!isPlaying);
-    } else {
-      setCurrentTrack(track);
-      setIsPlaying(true);
-    }
-  };
-
-  const handleNextTrack = () => {
-    if (!currentTrack) return;
-    const currentIndex = FEATURED_TRACKS.findIndex((t) => t.id === currentTrack.id);
-    const nextTrack = FEATURED_TRACKS[(currentIndex + 1) % FEATURED_TRACKS.length];
-    setCurrentTrack(nextTrack);
-    setIsPlaying(true);
-  };
-
-  const handlePrevTrack = () => {
-    if (!currentTrack) return;
-    const currentIndex = FEATURED_TRACKS.findIndex((t) => t.id === currentTrack.id);
-    const prevTrack = FEATURED_TRACKS[(currentIndex - 1 + FEATURED_TRACKS.length) % FEATURED_TRACKS.length];
-    setCurrentTrack(prevTrack);
-    setIsPlaying(true);
-  };
+  // Play the first track by default once (mirrors the old
+  // `useState<SongTrack | null>(FEATURED_TRACKS[0])` initial value),
+  // but paused — call play() once on mount if you want it queued up.
+  useEffect(() => {
+    // Intentionally left as a comment: uncomment if you want a track
+    // pre-loaded (but not auto-playing) on first load.
+    // play(FEATURED_TRACKS[0]);
+  }, []);
 
   return (
     <div className={`min-h-screen font-sans-clean transition-colors duration-500 ${isDarkMode ? 'dark bg-[#090909] text-[#FAFAFA]' : 'light bg-[#F8F6F2] text-[#121212]'}`}>
@@ -104,19 +121,19 @@ export default function App() {
         toggleTheme={toggleTheme}
         currentTrack={currentTrack}
         isPlaying={isPlaying}
-        togglePlay={() => setIsPlaying(!isPlaying)}
+        togglePlay={() => (isPlaying ? pause() : resume())}
       />
 
       {/* Main Page Sections */}
       <main className="relative z-10">
         <HeroSection
-          onPlayTrack={handlePlayTrack}
+          onPlayTrack={togglePlay}
           currentTrack={currentTrack}
           isPlaying={isPlaying}
         />
         <AboutSection />
         <MusicSection
-          onPlayTrack={handlePlayTrack}
+          onPlayTrack={togglePlay}
           currentTrack={currentTrack}
           isPlaying={isPlaying}
         />
@@ -127,7 +144,7 @@ export default function App() {
         <EventsSection />
          <PerformanceSection></PerformanceSection>
         <TestimonialsSection />
-       
+
         <ContactSection />
       </main>
 
@@ -135,10 +152,17 @@ export default function App() {
       <AudioPlayerDrawer
         currentTrack={currentTrack}
         isPlaying={isPlaying}
-        onTogglePlay={() => setIsPlaying(!isPlaying)}
+        currentTime={currentTime}
+        duration={duration}
+        volume={volume}
+        loop={loop}
+        onSeek={seek}
+        onVolumeChange={setVolume}
+        onToggleLoop={() => setLoop(!loop)}
+        onTogglePlay={() => (isPlaying ? pause() : resume())}
         onNextTrack={handleNextTrack}
         onPrevTrack={handlePrevTrack}
-        onClose={() => setIsPlaying(false)}
+        onClose={() => pause()}
       />
 
       {/* Footer */}
@@ -146,4 +170,3 @@ export default function App() {
     </div>
   );
 }
-

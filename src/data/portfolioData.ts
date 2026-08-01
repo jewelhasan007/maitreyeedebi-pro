@@ -45,57 +45,20 @@ Over a distinguished career spanning more than fifteen years, she has released s
 export const FEATURED_TRACKS: SongTrack[] = [
   {
     id: "track-1",
-    title: "Celestial Raga: Bairagi Echoes",
+    title: "ঘুড়ি",
     album: "Celestial Ragas",
     year: 2024,
-    duration: "4:32",
+    duration: "4:46",
     genre: "Classical",
-    coverUrl: albumCoverImg,
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=meditation-ambient-112282.mp3",
-    streams: "2.4M",
+    coverUrl: "/images/featured/ghuri.jpg",
+    audioUrl: "https://www.youtube.com/watch?v=c0aFfQPWykU",
+    streams: "17",
     featuredArtist: "London Philharmonic Strings",
     lyricsSnippet: "In the quietude of dawn, the soul wakes to the timeless melody of the universe...",
     isPopular: true
   },
-  {
-    id: "track-2",
-    title: "Anandadhara (Stream of Joy)",
-    album: "Tagore in Symphony",
-    year: 2023,
-    duration: "5:14",
-    genre: "Rabindra Sangeet",
-    coverUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80",
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c2f82283a0.mp3?filename=gentle-acoustic-10234.mp3",
-    streams: "1.8M",
-    lyricsSnippet: "Anandadhara bohichhe bhubane, jagaatare taaro nahi paaye...",
-    isPopular: true
-  },
-  {
-    id: "track-3",
-    title: "Sufi Mirage (Noor-e-Nazar)",
-    album: "Mystic Horizons",
-    year: 2024,
-    duration: "6:08",
-    genre: "Sufi",
-    coverUrl: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80",
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3?filename=sufi-flute-ambient-9283.mp3",
-    streams: "3.1M",
-    featuredArtist: "Ustad Rashid Ali (Flute)",
-    lyricsSnippet: "Light of my eyes, soul of the night, guide my steps through the desert sky...",
-    isPopular: true
-  },
-  {
-    id: "track-4",
-    title: "Midnight Thumri in Raag Bageshri",
-    album: "Nocturne Whispers",
-    year: 2022,
-    duration: "7:20",
-    genre: "Classical",
-    coverUrl: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80",
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/10/14/audio_9932128712.mp3?filename=indian-classical-ambient-8890.mp3",
-    streams: "950K",
-    isPopular: false
-  },
+
+
   {
     id: "track-5",
     title: "Ganga Reverie (Fusion Suite)",
@@ -126,48 +89,60 @@ export const FEATURED_TRACKS: SongTrack[] = [
 export const ALBUMS_LIST: Album[] = [
   {
     id: "album-1",
-    title: "Celestial Ragas",
-    releaseYear: 2024,
-    coverUrl: albumCoverImg,
-    genre: "Classical & Symphonic",
-    tracksCount: 8,
-    description: "A breathtaking acoustic tapestry melding ancient Hindustani ragas with Western classical string arrangements recorded at Abbey Road Studios.",
-    spotifyUrl: "https://spotify.com",
+    title: "তুমি নেই || Tumi Nei",
+    releaseYear: 2026,
+    coverUrl: "/images/music/tumi-nei.jpg", // or replace with actual thumbnail
+    genre: "Bengali Contemporary / Original",
+    tracksCount: 6, // approx. recent date-titled + Tumi Nei
+    description: "Recent original compositions and uploads from 2026, led by the heartfelt track তুমি নেই (Tumi Nei).",
+    spotifyUrl: "https://www.youtube.com/watch?v=WzG03lYjUpw",
     appleMusicUrl: "https://apple.com"
   },
   {
     id: "album-2",
-    title: "Tagore in Symphony",
-    releaseYear: 2023,
-    coverUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80",
-    genre: "Rabindra Sangeet Orchestral",
-    tracksCount: 10,
-    description: "An homage to Nobel laureate Rabindranath Tagore, re-imagined with grand cinematic brass and intricate vocal ornamentation.",
-    spotifyUrl: "https://spotify.com",
+    title: "সুরের জাদুওয়ালা || Surer Jaduwala - Joyotree Chakraborti",
+    releaseYear: 2026,
+    coverUrl: "/images/music/surer-jaduwala.jpg",
+    genre: "Bengali Cover / Classical Fusion",
+    tracksCount: 1,
+    description: "Cover of Joyotree Chakraborti’s সুরের জাদুওয়ালা (Surer Jaduwala).",
+    spotifyUrl: "https://www.youtube.com/watch?v=3X57lWlG-8w",
     appleMusicUrl: "https://apple.com"
   },
   {
     id: "album-3",
-    title: "Mystic Horizons",
-    releaseYear: 2022,
-    coverUrl: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80",
-    genre: "Sufi & World Fusion",
-    tracksCount: 9,
-    description: "Deep spiritual trance and mystical Sufi poetry meets contemporary acoustic percussion and ambient electronic layers.",
-    spotifyUrl: "https://spotify.com",
+    title: "জানবে নাতো কেউ - মুহিন || Janbe Nato Kew ",
+    releaseYear: 2026,
+    coverUrl: "/images/music/janbe-nato-kew.jpg",
+    genre: "Bengali Cover",
+    tracksCount: 2, // full + short/promo version
+    description: "Cover of Muhin’s জানবে নাতো কেউ (Janbe Nato Kew), including promo version.",
+    spotifyUrl: "https://www.youtube.com/watch?v=DU6Z2NW58-M",
     appleMusicUrl: "https://apple.com"
   },
   {
     id: "album-4",
-    title: "Rivers of the East",
-    releaseYear: 2021,
-    coverUrl: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=600&q=80",
-    genre: "Folk & Acoustic Fusion",
-    tracksCount: 12,
-    description: "A musical river cruise exploring the rich vocal folk heritage of Bengal, Assam, and the Himalayan foothills.",
-    spotifyUrl: "https://spotify.com",
+    title: "ছুঁয়ে দাও যখন । Chuye Dau Jokhon",
+    releaseYear: 2026,
+    coverUrl: "/images/music/chuye-dau-jokhon.jpg",
+    genre: "Bengali / Misc",
+    tracksCount: 4,
+    description: "Additional short clips, promos and earlier uploads from the official channel.",
+    spotifyUrl: "https://www.youtube.com/watch?v=hwDJokybHGE&list=RDhwDJokybHGE&start_radio=1",
     appleMusicUrl: "https://apple.com"
-  }
+  },
+  // {
+  //   id: "album-4",
+  //   title: "প্রিয় মা || Priyo Ma",
+  //   releaseYear: 2026,
+  //   coverUrl: "/images/music/priyo-ma.jpg",
+  //   genre: "Bengali / Misc",
+  //   tracksCount: 4,
+  //   description: "Additional short clips, promos and earlier uploads from the official channel.",
+  //   spotifyUrl: "https://www.youtube.com/watch?v=dxdiXZhJXdI",
+  //   appleMusicUrl: "https://apple.com"
+  // },
+
 ];
 
 export const PERFORMANCES: Performance[] = [
