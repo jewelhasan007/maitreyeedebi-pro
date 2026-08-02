@@ -33,12 +33,6 @@ export const PublicationsSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-[#D4AF37]/30 bg-[#12162E]/80 backdrop-blur-md">
-            <BookOpen className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span className="font-mono text-[11px] text-[#D4AF37] uppercase tracking-[0.25em]">
-              Literary Works & Authored Books
-            </span>
-          </div>
 
           <h2 className="font-serif-luxury text-3xl sm:text-5xl font-bold tracking-tight text-[#FAFAFA]">
             Book Publications & <span className="gold-gradient-text">Scholarly Writings</span>
@@ -366,8 +360,8 @@ export const PublicationsSection: React.FC = () => {
 
       {/* Excerpt Preview Reader Modal */}
       {selectedBookForExcerpt && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
-          <div className="relative w-full max-w-2xl bg-[#0F1328] border border-[#D4AF37]/50 rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+          <div className="relative w-full max-w-2xl bg-[#0F1328] border border-[#D4AF37]/50 rounded-2xl shadow-2xl overflow-hidden max-h-[85vh] sm:max-h-[90vh] flex flex-col mt-16 sm:mt-0">
             
             {/* Modal Header */}
             <div className="p-6 border-b border-white/10 flex items-center justify-between bg-[#12162E]/90">
@@ -385,7 +379,7 @@ export const PublicationsSection: React.FC = () => {
 
               <button
                 onClick={() => setSelectedBookForExcerpt(null)}
-                className="p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors"
+                className="p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors shrink-0"
               >
                 <X className="w-5 h-5" />
               </button>

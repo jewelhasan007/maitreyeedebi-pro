@@ -16,6 +16,7 @@ import { AudioPlayerDrawer } from './components/AudioPlayerDrawer';
 import { Footer } from './components/Footer';
 import { FEATURED_TRACKS } from './data/portfolioData';
 import { useMediaPlayer } from './hooks/useMediaPlayer';
+import { PublicationsSection } from './components/PublicationsSection';
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -143,8 +144,9 @@ export default function App() {
         <GallerySection />
         <EventsSection />
          <PerformanceSection></PerformanceSection>
-        <TestimonialsSection />
 
+<PublicationsSection></PublicationsSection>
+        <TestimonialsSection />
         <ContactSection />
       </main>
 

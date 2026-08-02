@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { FEATURED_TRACKS, ALBUMS_LIST } from '../data/portfolioData';
 import { SongTrack, Album } from '../types';
-import { Play, Pause, Music, Disc, ExternalLink, Sparkles, Volume2, AlignLeft, Headphones, Radio } from 'lucide-react';
+import { Play, Pause, Music, Disc, ExternalLink, Sparkles, Volume2, AlignLeft, Headphones, Radio, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface MusicSectionProps {
   onPlayTrack: (track: SongTrack) => void;
@@ -10,6 +10,7 @@ interface MusicSectionProps {
 }
 
 const GENRES = ['All', 'Classical', 'Rabindra Sangeet', 'Sufi', 'Fusion'];
+const TRACKS_PER_PAGE = 5;
 
 export const MusicSection: React.FC<MusicSectionProps> = ({
   onPlayTrack,
@@ -18,14 +19,37 @@ export const MusicSection: React.FC<MusicSectionProps> = ({
 }) => {
   const [selectedGenre, setSelectedGenre] = useState('All');
   const [selectedLyricsTrack, setSelectedLyricsTrack] = useState<SongTrack | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const filteredTracks = FEATURED_TRACKS.filter((track) => {
     if (selectedGenre === 'All') return true;
     return track.genre === selectedGenre;
   });
 
+  const totalPages = Math.max(1, Math.ceil(filteredTracks.length / TRACKS_PER_PAGE));
+
+  // Keep page in range if the filtered list shrinks below the current page
+  // (e.g. after switching genres).
+  const safePage = Math.min(currentPage, totalPages);
+
+  const paginatedTracks = useMemo(() => {
+    const start = (safePage - 1) * TRACKS_PER_PAGE;
+    return filteredTracks.slice(start, start + TRACKS_PER_PAGE);
+  }, [filteredTracks, safePage]);
+
+  const handleGenreChange = (genre: string) => {
+    setSelectedGenre(genre);
+    setCurrentPage(1); // reset to page 1 whenever the filter changes
+  };
+
+  const goToPage = (page: number) => {
+    setCurrentPage(page);
+    // Scroll the tracklist back into view so pagination feels natural
+    document.getElementById('music')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  };
+
   return (
-    <section id="music" className="py-16 sm:py-20 relative bg-[#090909] overflow-hidden">
+    <section id="music" className="py-4 sm:py-20 relative bg-[#090909] overflow-hidden">
       {/* Background Subtle Glow */}
       <div className="absolute top-1/3 right-0 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -63,11 +87,11 @@ export const MusicSection: React.FC<MusicSectionProps> = ({
               >
                 <div className="space-y-3">
                   {/* Vinyl Effect Album Cover */}
-                  <div className="relative aspect-square rounded-xl overflow-hidden shadow-xl">
+                  <div className="relative aspect-square rounded-xl overflow-hidden shadow-xl bg-[#121212]">
                     <img
                       src={album.coverUrl}
                       alt={album.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
@@ -132,7 +156,7 @@ export const MusicSection: React.FC<MusicSectionProps> = ({
               {GENRES.map((genre) => (
                 <button
                   key={genre}
-                  onClick={() => setSelectedGenre(genre)}
+                  onClick={() => handleGenreChange(genre)}
                   className={`px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-300 ${
                     selectedGenre === genre
                       ? 'bg-[#D4AF37] text-black font-bold shadow-lg shadow-[#D4AF37]/20'
@@ -145,11 +169,12 @@ export const MusicSection: React.FC<MusicSectionProps> = ({
             </div>
           </div>
 
-          {/* Tracklist Items */}
+          {/* Tracklist Items (paginated: 5 per page) */}
           <div className="space-y-3">
-            {filteredTracks.map((track, idx) => {
+            {paginatedTracks.map((track, idx) => {
               const isCurrent = currentTrack?.id === track.id;
               const isCurrentPlaying = isCurrent && isPlaying;
+              const displayIndex = (safePage - 1) * TRACKS_PER_PAGE + idx;
 
               return (
                 <div
@@ -163,7 +188,7 @@ export const MusicSection: React.FC<MusicSectionProps> = ({
                   {/* Left: Index & Cover & Details */}
                   <div className="flex items-center space-x-4 min-w-0">
                     <span className="font-mono text-xs text-[#A3A3A3] w-6 text-center hidden sm:inline">
-                      {String(idx + 1).padStart(2, '0')}
+                      {String(displayIndex + 1).padStart(2, '0')}
                     </span>
 
                     <div className="relative group/cover shrink-0 cursor-pointer" onClick={() => onPlayTrack(track)}>
@@ -239,6 +264,43 @@ export const MusicSection: React.FC<MusicSectionProps> = ({
               );
             })}
           </div>
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-center space-x-2 pt-4">
+              <button
+                onClick={() => goToPage(safePage - 1)}
+                disabled={safePage === 1}
+                className="p-2 rounded-full border border-white/10 text-[#A3A3A3] hover:text-[#D4AF37] hover:border-[#D4AF37] disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:text-[#A3A3A3] disabled:hover:border-white/10 transition-all"
+                title="Previous Page"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => goToPage(page)}
+                  className={`w-9 h-9 rounded-full text-xs font-mono transition-all duration-300 ${
+                    page === safePage
+                      ? 'bg-[#D4AF37] text-black font-bold shadow-lg shadow-[#D4AF37]/20'
+                      : 'bg-[#121212] text-[#A3A3A3] hover:text-[#FAFAFA] border border-white/10 hover:border-[#D4AF37]/40'
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
+
+              <button
+                onClick={() => goToPage(safePage + 1)}
+                disabled={safePage === totalPages}
+                className="p-2 rounded-full border border-white/10 text-[#A3A3A3] hover:text-[#D4AF37] hover:border-[#D4AF37] disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:text-[#A3A3A3] disabled:hover:border-white/10 transition-all"
+                title="Next Page"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          )}
         </div>
 
       </div>

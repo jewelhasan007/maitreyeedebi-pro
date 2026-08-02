@@ -38,6 +38,11 @@ const WikipediaLogo = () => (
     <path d="M12.09 13.112l-2.42-6.388h1.49l1.62 4.67 1.57-4.67h1.43l-2.39 6.388v4.488h-1.3V13.112zM3.46 6.724h1.74l2.84 8.21 2.38-6.92h-1.38V6.724h4.15v1.29h-1.35l1.69 4.96 1.71-4.96h-1.32V6.724h3.94v1.29h-1.12l-3.32 9.53h-1.57l-2.18-6.26-2.19 6.26H7.92L4.62 8.014H3.46V6.724z"/>
   </svg>
 );
+const WebsiteLogo = () => (
+  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/>
+  </svg>
+);
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -164,6 +169,22 @@ export const Footer: React.FC = () => {
 
             <div className="pt-3 text-[11px] text-[#A3A3A3] font-mono border-t border-white/5">
               Managed globally by <span className="text-[#FAFAFA] font-semibold">{ARTIST_INFO.agencyContact.management}</span>
+            </div>
+          
+
+             {/* Developer with Logos */}
+            <div className="grid grid-cols-1 gap-2.5"  >
+                <a
+                  href={ARTIST_INFO.developerAgency.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={` flex  items-center space-x-2.5 px-3.5 py-2 rounded-lg bg-white/[0.02] border border-white/10 text-xs font-sans-clean text-[#D4D4D4] transition-all duration-300 group ${ARTIST_INFO.developerAgency.color}`}
+                >
+                <WebsiteLogo />
+                  <span className="font-medium tracking-wide text-[12px] truncate font-bold"> <span className='pr-3 italic'> Developed by-</span>{ARTIST_INFO.developerAgency.developed}</span>
+                  <ExternalLink className="w-3 h-3 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+           
             </div>
           </div>
 
