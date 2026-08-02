@@ -45,6 +45,20 @@ Over a distinguished career spanning more than fifteen years, she has released s
 export const FEATURED_TRACKS: SongTrack[] = [
   {
     id: "track-1",
+    title: "জানবে নাতো কেউ - মুহিন || Janbe nato kew - Muhin",
+    album: "Celestial Ragas",
+    year: 2024,
+    duration: "4:15",
+    genre: "Classical",
+    coverUrl: "/images/featured/janbe-nato-kew.jpg",
+    audioUrl: "https://www.youtube.com/watch?v=DU6Z2NW58-M",
+    streams: "17",
+    featuredArtist: "London Philharmonic Strings",
+    lyricsSnippet: "In the quietude of dawn, the soul wakes to the timeless melody of the universe...",
+    isPopular: true
+  },
+  {
+    id: "track-2",
     title: "ঘুড়ি",
     album: "Celestial Ragas",
     year: 2024,
@@ -55,35 +69,24 @@ export const FEATURED_TRACKS: SongTrack[] = [
     streams: "17",
     featuredArtist: "London Philharmonic Strings",
     lyricsSnippet: "In the quietude of dawn, the soul wakes to the timeless melody of the universe...",
-    isPopular: true
-  },
-
-
-  {
-    id: "track-5",
-    title: "Ganga Reverie (Fusion Suite)",
-    album: "Rivers of the East",
-    year: 2023,
-    duration: "4:48",
-    genre: "Fusion",
-    coverUrl: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=600&q=80",
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/03/10/audio_284712.mp3?filename=ambient-piano-strings-10023.mp3",
-    streams: "1.2M",
-    featuredArtist: "Prague Chamber Cello Ensemble",
-    isPopular: true
-  },
-  {
-    id: "track-6",
-    title: "Shedin Dekha Hoyechilo",
-    album: "Tagore in Symphony",
-    year: 2023,
-    duration: "4:15",
-    genre: "Rabindra Sangeet",
-    coverUrl: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80",
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/05/16/audio_c39832812.mp3?filename=soft-classical-instrumental-11920.mp3",
-    streams: "890K",
     isPopular: false
-  }
+  },
+  {
+    id: "track-3",
+    title: "সুরের জাদুওয়ালা || Surer Jaduwala - Joyotree Chakraborti",
+    album: "Celestial Ragas",
+    year: 2024,
+    duration: "4:44",
+    genre: "Classical",
+    coverUrl: "/images/featured/surer-jaduwala.jpg",
+    audioUrl: "https://www.youtube.com/watch?v=3X57lWlG-8w",
+    streams: "1.01K",
+    featuredArtist: "London Philharmonic Strings",
+    lyricsSnippet: "In the quietude of dawn, the soul wakes to the timeless melody of the universe...",
+    isPopular: false
+  },
+
+
 ];
 
 export const ALBUMS_LIST: Album[] = [
