@@ -238,98 +238,127 @@ export const ALBUMS_LIST: Album[] = [
 ];
 
 export const PERFORMANCES: Performance[] = [
- {
-  id: "perf-toronto-cultural",
-  title: "Toronto Cultural Heritage Festival",
-  category: "Festival",
-  date: "June 21, 2024",
-  location: "Toronto, Canada",
-  venue: "Harbourfront Centre",
-  attendance: "4,500 Guests",
-  thumbnailUrl: "https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?auto=format&fit=crop&w=1200&q=80",
-  videoUrl: "https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID",
-  description: "A vibrant evening celebrating South Asian classical traditions alongside contemporary fusion works, performed for Toronto's diverse cultural community on National Indigenous Peoples Day weekend."
-},
-{
-  id: "perf-boston-cultural",
-  title: "Boston Cultural Arts Showcase",
-  category: "Festival",
-  date: "September 14, 2024",
-  location: "Boston, USA",
-  venue: "Symphony Hall",
-  attendance: "3,200 Guests",
-  thumbnailUrl: "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1200&q=80",
-  videoUrl: "https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID",
-  description: "A cross-cultural evening blending classical ragas with New England chamber ensemble arrangements, part of Boston's annual celebration of global artistic heritage."
-},
-{
-  id: "perf-7",
-  title: "Berlin Philharmonic Fusion Night",
-  venue: "Konzerthaus Berlin",
-  location: "Berlin, Germany",
-  date: "March 03, 2024",
-  category: "Symphony",
-  thumbnailUrl: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=800&q=80",
-  description: "A rare collaboration pairing classical Hindustani ragas with a full German chamber orchestra, commissioned specially for the Konzerthaus's international series.",
-  attendance: "1,800 Guests"
-},
-{
-  id: "perf-8",
-  title: "Dubai Opera Gala Evening",
-  venue: "Dubai Opera",
-  location: "Dubai, UAE",
-  date: "December 12, 2023",
-  category: "Concert",
-  thumbnailUrl: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=800&q=80",
-  description: "An intimate evening of devotional and classical repertoire performed for a sold-out audience at one of the Middle East's premier performing arts venues.",
-  attendance: "2,000 Guests"
-},
-{
-  id: "perf-9",
-  title: "Singapore Arts Festival Showcase",
-  venue: "Esplanade Concert Hall",
-  location: "Singapore",
-  date: "May 19, 2024",
-  category: "Festival",
-  thumbnailUrl: "https://images.unsplash.com/photo-1508997449629-303059a039c0?auto=format&fit=crop&w=800&q=80",
-  description: "Part of Singapore's annual multicultural arts celebration, featuring a program bridging Carnatic and Hindustani vocal traditions for a global audience.",
-  attendance: "3,000 Guests"
-},
-{
-  id: "perf-10",
-  title: "NPR Tiny Desk Cultural Session",
-  venue: "NPR Studios",
-  location: "Washington D.C., USA",
-  date: "July 09, 2023",
-  category: "Television",
-  thumbnailUrl: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80",
-  description: "An acoustic broadcast session recorded live, later streamed to millions worldwide, spotlighting stripped-down renditions of signature vocal works.",
-  attendance: "Broadcast to 3.4M Viewers"
-},
-{
-  id: "perf-11",
-  title: "Paris Institut du Monde Recital",
-  venue: "Institut du Monde Arabe",
-  location: "Paris, France",
-  date: "April 27, 2024",
-  category: "Concert",
-  thumbnailUrl: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
-  description: "A recital exploring the shared roots of Sufi and classical Indian vocal traditions, presented as part of a cross-cultural exchange series.",
-  attendance: "950 Guests"
-},
-{
-  id: "perf-12",
-  title: "Tokyo Global Heritage Concert",
-  venue: "Suntory Hall",
-  location: "Tokyo, Japan",
-  date: "October 30, 2023",
-  category: "Festival",
-  thumbnailUrl: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80",
-  description: "A landmark performance bringing Hindustani classical music to one of Japan's most celebrated concert halls, part of an annual world heritage series.",
-  attendance: "1,500 Guests"
-}
+  {
+    id: "perf-1",
+    title: "Rabindra Jayanti Tribute Evening",
+    category: "Festival",
+    date: "May 09, 2024",
+    location: "Kolkata, India",
+    venue: "Rabindra Sadan",
+    attendance: "3,800 Guests",
+    thumbnailUrl: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=80",
+    videoUrl: "https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID",
+    description: "An evening dedicated entirely to Rabindra Sangeet, marking Tagore's birth anniversary with classical renditions and rare archival compositions performed for a packed auditorium."
+  },
+  {
+    id: "perf-2",
+    title: "Pohela Boishakh Cultural Concert",
+    category: "Festival",
+    date: "April 14, 2024",
+    location: "Dhaka, Bangladesh",
+    venue: "Bangladesh Shilpakala Academy",
+    attendance: "5,000 Guests",
+    thumbnailUrl: "https://images.unsplash.com/photo-1533669955142-6a73332af4db?auto=format&fit=crop&w=1200&q=80",
+    videoUrl: "https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID",
+    description: "A landmark Bengali New Year performance celebrating folk and classical traditions, opening the citywide Pohela Boishakh festivities with a full orchestral ensemble."
+  },
+  {
+    id: "perf-3",
+    title: "Durga Puja Sanskritik Sandhya",
+    category: "Concert",
+    date: "October 11, 2023",
+    location: "Kolkata, India",
+    venue: "Netaji Indoor Stadium",
+    attendance: "6,200 Guests",
+    thumbnailUrl: "https://images.unsplash.com/photo-1604608672516-f1f3b0d7c17c?auto=format&fit=crop&w=1200&q=80",
+    videoUrl: "https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID",
+    description: "A festive cultural evening held during Durga Puja, blending devotional Agomoni songs with contemporary Bengali compositions for one of the city's largest community gatherings."
+  },
+  {
+    id: "perf-4",
+    title: "Santiniketan Basanta Utsav Recital",
+    category: "Festival",
+    date: "March 20, 2024",
+    location: "Santiniketan, India",
+    venue: "Visva-Bharati Amphitheatre",
+    attendance: "2,400 Guests",
+    thumbnailUrl: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=1200&q=80",
+    videoUrl: "https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID",
+    description: "A spring festival performance at Tagore's own university town, presenting Basanta Utsav songs and dance-drama excerpts in the tradition Rabindranath himself established."
+  },
+  {
+    id: "perf-5",
+    title: "BBC Bengali Service Heritage Broadcast",
+    category: "Television",
+    date: "August 15, 2023",
+    location: "London, UK",
+    venue: "BBC Bush House Studios",
+    attendance: "Broadcast to 1.8M Viewers",
+    thumbnailUrl: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80",
+    videoUrl: "https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID",
+    description: "A special broadcast for the BBC Bengali Service, marking Bangladesh's Independence Day with live vocal performances and a retrospective on Bengali musical heritage."
+  },
+  {
+    id: "perf-6",
+    title: "New York Bengali Association Gala",
+    category: "Concert",
+    date: "November 18, 2023",
+    location: "New York, USA",
+    venue: "Queens Theatre",
+    attendance: "1,600 Guests",
+    thumbnailUrl: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80",
+    videoUrl: "https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID",
+    description: "An annual diaspora gathering celebrating Bengali arts and language, featuring classical vocal recitals alongside readings of Bengali poetry for the community abroad."
+  },
+  {
+    id: "perf-7",
+    title: "Toronto Bengali Cultural Night",
+    category: "Festival",
+    date: "June 21, 2024",
+    location: "Toronto, Canada",
+    venue: "Harbourfront Centre",
+    attendance: "4,500 Guests",
+    thumbnailUrl: "https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?auto=format&fit=crop&w=1200&q=80",
+    videoUrl: "https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID",
+    description: "A vibrant evening celebrating Bengali classical and folk traditions alongside contemporary fusion works, performed for Toronto's growing Bengali community."
+  },
+  {
+    id: "perf-8",
+    title: "Boston Bangla Sangeet Sandhya",
+    category: "Festival",
+    date: "September 14, 2024",
+    location: "Boston, USA",
+    venue: "Symphony Hall",
+    attendance: "3,200 Guests",
+    thumbnailUrl: "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1200&q=80",
+    videoUrl: "https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID",
+    description: "A cross-cultural evening blending classical Bengali ragas with New England chamber ensemble arrangements, part of Boston's annual celebration of Bengali artistic heritage."
+  },
+  {
+    id: "perf-9",
+    title: "Kolkata Book Fair Cultural Stage",
+    category: "Festival",
+    date: "February 03, 2024",
+    location: "Kolkata, India",
+    venue: "Boi Mela Main Stage",
+    attendance: "7,000 Guests",
+    thumbnailUrl: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1200&q=80",
+    videoUrl: "https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID",
+    description: "A featured performance on the main cultural stage of the International Kolkata Book Fair, pairing poetry recitations with live Rabindra Sangeet accompaniment."
+  },
+  {
+    id: "perf-10",
+    title: "Nazrul Jayanti Symphonic Tribute",
+    category: "Symphony",
+    date: "May 25, 2024",
+    location: "Kolkata, India",
+    venue: "Kala Mandir",
+    attendance: "2,900 Guests",
+    thumbnailUrl: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=1200&q=80",
+    videoUrl: "https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID",
+    description: "A full orchestral tribute to Kazi Nazrul Islam on his birth anniversary, presenting Nazrul Geeti reimagined with symphonic arrangements for a seated concert hall audience."
+  }
 ];
-
 
 
 export const AWARDS: Award[] = [

@@ -33,21 +33,16 @@ export const ContactSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center space-y-3 max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-[#D4AF37]/30 bg-[#121212]/80">
-            <Mail className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span className="text-[11px] font-mono tracking-widest text-[#D4AF37] uppercase">
-              Management & Inquiries
-            </span>
-          </div>
+        <div className="text-center space-y-3 max-w-3xl mx-auto mb-4">
+         
           <h2 className="font-serif-luxury text-3xl sm:text-5xl font-bold tracking-tight text-[#FAFAFA]">
-            Book a Performance <br />
+            Bring Music   <br />
             <span className="gold-gradient-text italic font-normal">
-              or Collaboration
+             to Your Event
             </span>
           </h2>
           <p className="text-sm sm:text-base text-[#A3A3A3] font-sans-clean font-light leading-relaxed">
-            Direct booking inquiries for symphony halls, private galas, film recordings, and press interviews.
+            Connect for concert engagements, private performances, recording projects, and media appearances.
           </p>
         </div>
 

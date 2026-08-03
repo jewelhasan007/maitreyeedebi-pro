@@ -68,13 +68,13 @@ export const PerformanceSection: React.FC = () => {
         <div className="text-center space-y-3 max-w-3xl mx-auto mb-3">
 
           <h2 className="font-serif-luxury text-3xl sm:text-5xl font-bold tracking-tight text-[#FAFAFA]">
-            Captivating Stages <br />
+            Stages <br />
             <span className="gold-gradient-text italic font-normal">
-              Worldwide
+              Around the World
             </span>
           </h2>
           <p className="text-sm sm:text-base text-[#A3A3A3] font-sans-clean font-light leading-relaxed">
-            Relive iconic orchestral galas, television broadcasts, and cultural festivals.
+            Explore concerts, TV appearances, and live performances worldwide.
           </p>
         </div>
 

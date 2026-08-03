@@ -35,11 +35,11 @@ export const PublicationsSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
 
           <h2 className="font-serif-luxury text-3xl sm:text-5xl font-bold tracking-tight text-[#FAFAFA]">
-            Book Publications & <span className="gold-gradient-text">Scholarly Writings</span>
+            Books & <span className="gold-gradient-text">Publications </span>
           </h2>
 
           <p className="text-sm sm:text-base text-[#A0A6C6] font-sans-clean font-light leading-relaxed">
-            Delve into Maitreyee Debi's published repertoire—from groundbreaking musicology treatises and original poetry to masterclasses in Khyal technique and translations of Bengalee mystics.
+            Explore the literary and scholarly world of Maitreyee Debi through books, poetry, research, and translations.
           </p>
         </div>
 

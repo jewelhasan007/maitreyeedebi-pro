@@ -23,9 +23,9 @@ export const TestimonialsSection: React.FC = () => {
         <div className="text-center space-y-3 max-w-3xl mx-auto mb-4">
    
           <h2 className="font-serif-luxury text-3xl sm:text-5xl font-bold tracking-tight text-[#FAFAFA]">
-            Words of <br />
+            Praise   <br />
             <span className="gold-gradient-text italic font-normal">
-              Acclaim
+             & Recognition
             </span>
           </h2>
         </div>
