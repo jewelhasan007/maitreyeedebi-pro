@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Music, Sun, Moon, Menu, X, Disc3, Volume2 } from 'lucide-react';
+import { Music, Sun, Moon, Menu, X, Disc3, Volume2, Image } from 'lucide-react';
 import { SongTrack } from '../types';
+
 
 interface NavbarProps {
   activeSection: string;
@@ -78,52 +79,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           onClick={() => scrollToSection('hero')}
           className="group flex items-center gap-4 sm:gap-5 text-left focus:outline-none shrink-0"
         >
-          {/* Lucrative Gold Emblem Badge */}
-          <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#2A2415] via-[#121212] to-[#0A0A0A] border border-[#D4AF37]/50 shadow-[0_0_15px_rgba(212,175,55,0.25)] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_22px_rgba(212,175,55,0.45)] transition-all duration-300 flex items-center justify-center overflow-hidden shrink-0">
-            {/* Subtle inner gold sheen */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(212,175,55,0.35),transparent_70%)] opacity-80 group-hover:opacity-100 transition-opacity" />
-            
-            {/* Ornate Gold Monogram Crest SVG */}
-            <svg
-              viewBox="0 0 100 100"
-              className="w-7 h-7 sm:w-8 sm:h-8 relative z-10 text-[#D4AF37] group-hover:scale-105 transition-transform duration-300"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <linearGradient id="goldGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#FFF2A1" />
-                  <stop offset="35%" stopColor="#D4AF37" />
-                  <stop offset="70%" stopColor="#AA7C11" />
-                  <stop offset="100%" stopColor="#F1D382" />
-                </linearGradient>
-                <filter id="goldGlowNav" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="1.5" result="blur" />
-                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                </filter>
-              </defs>
-
-              {/* Decorative Geometric Crest Frame */}
-              <rect x="16" y="16" width="68" height="68" rx="16" transform="rotate(45 50 50)" stroke="url(#goldGradNav)" strokeWidth="1.8" opacity="0.6" />
-              <circle cx="50" cy="50" r="38" stroke="url(#goldGradNav)" strokeWidth="1.2" strokeDasharray="3 3" opacity="0.8" />
-              <circle cx="50" cy="50" r="32" stroke="url(#goldGradNav)" strokeWidth="2" filter="url(#goldGlowNav)" />
-
-              {/* Stylized MD Monogram */}
-              <path
-                d="M32 63V37L44 54L50 46L56 54L68 37V63"
-                stroke="url(#goldGradNav)"
-                strokeWidth="3.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              {/* Crown / Starburst Top Ornament */}
-              <path
-                d="M50 21L52.5 27L58.5 29.5L52.5 32L50 38L47.5 32L41.5 29.5L47.5 27Z"
-                fill="url(#goldGradNav)"
-              />
-              <circle cx="50" cy="68" r="2.2" fill="url(#goldGradNav)" />
-            </svg>
-          </div>
+<img
+  src="/images/logo/logo2.jpg"
+  alt="logo"
+  width="48"
+  height="48"
+  className="rounded-full object-cover border-2 border-[#9A7B1C]"
+/>
 
           <div className="py-0.5">
             <span className="block font-serif-luxury text-lg sm:text-xl font-bold tracking-[0.12em] gold-gradient-text leading-tight">
