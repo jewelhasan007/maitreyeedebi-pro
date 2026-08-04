@@ -184,13 +184,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           )}
 
           {/* Theme Toggle Button */}
-          <button
+          {/* <button
             onClick={toggleTheme}
             className="p-2 rounded-full border border-white/10 hover:border-[#D4AF37]/50 text-[#A3A3A3] hover:text-[#D4AF37] transition-all shrink-0"
             aria-label="Toggle Theme Mode"
           >
             {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-          </button>
+          </button> */}
 
           {/* Booking CTA Button (Desktop) */}
           <button

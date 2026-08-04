@@ -7,7 +7,9 @@ interface HeroSectionProps {
   onPlayTrack: (track: SongTrack) => void;
   currentTrack: SongTrack | null;
   isPlaying: boolean;
+  isDarkMode: boolean;
 }
+
 
 // Images served from the /public folder.
 // Drop files into e.g. /public/hero/portrait-1.jpg, portrait-2.jpg, portrait-3.jpg
@@ -26,6 +28,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onPlayTrack,
   currentTrack,
   isPlaying,
+  isDarkMode
 }) => {
   const [portraitIndex, setPortraitIndex] = useState(0);
 
@@ -68,15 +71,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             {/* Main Headline */}
             <div className="space-y-3">
-              <h1 className="font-serif-luxury text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-[#FAFAFA] leading-[1.05]">
-                Maitreyee Debi <br />
-                <span className="gold-gradient-text italic font-serif-luxury font-normal text-3xl sm:text-5xl lg:text-6xl font-bold">
-                  — Voice of  Rabindra Sangeet & Classical Fusion.
-                </span>{' '}
-               {/* <span className="text-2xl sm:text-4xl lg:text-5xl font-bold">
-                 Rabindra Sangeet & Classical Fusion.
-               </span> */}
-              </h1>
+     
+             <h1
+  className={`font-serif-luxury text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] ${
+    isDarkMode ? 'text-white' : 'text-black/50'
+  }`}
+>
+  Maitreyee Debi <br />
+  <span className="gold-gradient-text italic font-serif-luxury font-normal text-3xl sm:text-5xl lg:text-6xl font-bold">
+    — Voice of Rabindra Sangeet & Classical Fusion.
+  </span>
+</h1>
               {/* <p className="font-serif-luxury text-2xl sm:text-3xl text-[#D4AF37]/90 font-light italic">
                 Maitreyee Debi — Voice of Rabindra Sangeet & Classical Fusion
               </p> */}

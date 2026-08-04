@@ -131,6 +131,7 @@ export default function App() {
           onPlayTrack={togglePlay}
           currentTrack={currentTrack}
           isPlaying={isPlaying}
+           isDarkMode={isDarkMode}
         />
         <AboutSection />
         <MusicSection
@@ -168,7 +169,10 @@ export default function App() {
       />
 
       {/* Footer */}
-      <Footer />
+      <Footer 
+       isDarkMode={isDarkMode}
+        toggleTheme={toggleTheme}
+      />
     </div>
   );
 }

@@ -1,6 +1,19 @@
 import React from 'react';
 import { ARTIST_INFO } from '../data/portfolioData';
-import { ChevronUp, ExternalLink } from 'lucide-react';
+import { ChevronUp, ExternalLink, Sun, Moon } from 'lucide-react';
+
+import { SongTrack } from '../types';
+
+interface NavbarProps {
+  activeSection: string;
+  setActiveSection?: (section: string) => void;
+  isDarkMode: boolean;
+  toggleTheme: () => void;
+  currentTrack: SongTrack | null;
+  isPlaying: boolean;
+  togglePlay: () => void;
+}
+
 
 // Brand SVG Logos
 const SpotifyLogo = () => (
@@ -44,7 +57,8 @@ const WebsiteLogo = () => (
   </svg>
 );
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC<NavbarProps> = ({isDarkMode,
+  toggleTheme,}) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -193,6 +207,17 @@ export const Footer: React.FC = () => {
         {/* Bottom Copyright & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#A3A3A3] gap-4">
           <p>© {new Date().getFullYear()} Maitreyee Debi. All Rights Reserved. Official Artist Website.</p>
+          {/* Theme Toggle Button */}
+         <div className="flex items-center justify-center"> 
+         <p className="mr-3">Theme:</p>
+           <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full border border-white/10 hover:border-[#D4AF37]/50 text-[#A3A3A3] hover:text-[#D4AF37] transition-all shrink-0"
+            aria-label="Toggle Theme Mode"
+          > 
+            {isDarkMode ?  <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
+         </div>
 
           <button
             onClick={scrollToTop}
